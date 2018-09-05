@@ -5,6 +5,13 @@
 ### HashMaps
 
 Runtime:
+
+|              Average                     |               Worst                    | Space Complexity
+| :--------------------------------------: | :------------------------------------: |              
+| Access  |  Search | Insertion | Deletion | Access | Search | Insertion | Deletion |
+| :-----: | :-----: | :-------: | :------: | :----: | :----: | :-------: | :------: | :------:
+|  N/A    | `O(1)`  |   `O(1)`  |   `O(1)` |  N/A   |  `O(n)`| `O(n)`    | `O(n)`   | `O(n)`
+
               Average                  |               Worst                    | Space Complexity
 Access | Search | Insertion | Deletion | Access | Search | Insertion | Deletion |
   N/A    `O(1)`     `O(1)`     `O(1)`      N/A    `O(n)`     `O(n)`     `O(n)`          `O(n)`
