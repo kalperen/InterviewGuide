@@ -4,19 +4,6 @@
 
 ### HashMaps
 
-Runtime:
-
-|              Average                     |               Worst                    | Space Complexity
-| :--------------------------------------: | :------------------------------------: |              
-| Access  |  Search | Insertion | Deletion | Access | Search | Insertion | Deletion |
-| :-----: | :-----: | :-------: | :------: | :----: | :----: | :-------: | :------: | :------:
-|  N/A    | `O(1)`  |   `O(1)`  |   `O(1)` |  N/A   |  `O(n)`| `O(n)`    | `O(n)`   | `O(n)`
-
-              Average                  |               Worst                    | Space Complexity
-Access | Search | Insertion | Deletion | Access | Search | Insertion | Deletion |
-  N/A    `O(1)`     `O(1)`     `O(1)`      N/A    `O(n)`     `O(n)`     `O(n)`          `O(n)`
-
-
 HashMaps are arrays of fixed size containing data items with unique keys, together with a function called a hash function that maps keys to indexes in the table/arrays. When the java Map interface is used we need to ensure a good hash function is used for the objects that are used as keys in the hash table.
 
 A good hash function is:
