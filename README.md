@@ -1,6 +1,12 @@
 # InterviewGuide
 
-### Arrays and Strings
+This is my review of Algorithms and Data Structures for interview prep.
+Credit to [Kevin](https://github.com/kdn251/interviews) for a lot of the inspiration.
+### Arrays
+
+An array is a data structure that holds a fixed number of values (data points) of the same type. Each item, or value, in an array is called an element, and each element is accessed by its integer index. When we initialize an array, we get to choose what type of data it can hold and how many elements it can hold.
+
+Declaration: `Type[] = new Type[length];`
 
 ### HashMaps
 
@@ -108,3 +114,14 @@ Methods:
 - `E peek()` Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
 - `E poll()` Retrieves and removes the head of this queue, or returns null if this queue is empty.
 - `boolean contains(Object o)` Returns true if this queue contains the specified element.
+
+
+### Merge Sort:
+
+The algorithm for merge sort is as follows:
+1. split the array in half
+2. sort the left half
+3. sort the right half
+4. merge two sorted half-arrays into a single sorted array
+
+An implementation can be found [here](Algorithms/MergeSort.java)
