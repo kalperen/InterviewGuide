@@ -56,7 +56,7 @@ Methods:
 - `boolean add(E elemet)` inserts element into queue.
 - `E peek()` retrieves but does not remove head, returns null if empty.
 - `boolean offer(E element)` inserts element into queue.
-- `E remove()` retrieves and removes head
+- `E remove()` retrieves and removes head.
 
 ### Trees  
 
@@ -77,7 +77,7 @@ Definitions:
 - Full: Each node has exactly 0 or 2 children. OR Each level has maximal possible number of nodes (depends on definition used).
 - Complete: a binary tree with L levels such that the levels 0 <= l <= L have the max number of nodes (2^l) and the nodes at level L are placed as far left as poossible.
 
-Java does not come with a Binary Tree data structure, you must implement your own as can be found [here](DataStructures/BST.java) 
+Java does not come with a Binary Tree data structure, you must implement your own as can be found [here](DataStructures/BST.java)
 
 ### Priority Queues and Heaps
 
@@ -93,3 +93,18 @@ Heaps are usually implemented as arrays:
 - If an element is not root, its parent is at position (index - 1) / 2
 - If an element has a left child the child is at position index * 2 + 1
 - If an element has a right child the child is at position index * 2 + 2
+
+Declaration:
+- MinHeap: `PriorityQueue<Integer> minHeap = new PriorityQueue<>();`
+- MaxHeap: `PriorityQueue<Integer> maxHeap = new PriorityQueue<>(new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return o2.compareTo(o1);
+            }
+        });`
+
+Methods:
+- `boolean offer(E e)` Inserts the specified element into this priority queue.
+- `E peek()` Retrieves, but does not remove, the head of this queue, or returns null if this queue is empty.
+- `E poll()` Retrieves and removes the head of this queue, or returns null if this queue is empty.
+- `boolean contains(Object o)` Returns true if this queue contains the specified element.
