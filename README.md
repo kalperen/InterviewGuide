@@ -43,7 +43,7 @@ Therefore, a linked list can be simply thought of as a reference to the first no
 
 Declaration: `LinkedList<E elementType> linkedList = new LinkedList<E elementType>();`
 
-A sample implementation of Linked List can be found [here](LinkedList.java)
+A sample implementation of Linked List can be found [here](DataStructures/LinkedList.java)
 
 ### Queues
 
@@ -57,3 +57,39 @@ Methods:
 - `E peek()` retrieves but does not remove head, returns null if empty.
 - `boolean offer(E element)` inserts element into queue.
 - `E remove()` retrieves and removes head
+
+### Trees  
+
+Trees are structures in which each node can have multiple successors such that there is a unique path from the root to every other node in the tree. Any node can be viewed as the root of its own subtree.
+
+Definitions:
+- Children / Descendants: successors of a node.
+- Parent / Ascendants: predecessors of a node.
+- Siblings: node that share same parent nodes.
+- Leaf / External nodes: Nodes that don't have any children.
+- Non-leaf / Internal nodes: Nodes that do have one or more children.
+- Path: An edge formed by a pair of nodes.
+- Level: Distance from the root to a node, root being at 0.
+- Depth of tree: Level of deepest node.
+- Depth of node: number of ascendants of that node in a tree.
+- Height: Calculated from leaves up to root with leaf height being 0.
+- Binary Tree: Tree where each node can have at most 2 children. The shortest Binary Tree has log2(N+1) and the tallest has N-1 levels.
+- Full: Each node has exactly 0 or 2 children. OR Each level has maximal possible number of nodes (depends on definition used).
+- Complete: a binary tree with L levels such that the levels 0 <= l <= L have the max number of nodes (2^l) and the nodes at level L are placed as far left as poossible.
+
+Java does not come with a Binary Tree data structure, you must implement your own as can be found [here](DataStructures/BST.java) 
+
+### Priority Queues and Heaps
+
+A Max/Min heap maintains:
+1. Shape property: the heap has to be a complete binary tree.
+2. Order property: each node has a value greater/smaller than or equal to  the values of both of its children.
+
+Enqueue: Add elements in bottom row of tree then heapify.
+Dequeue: Remove root, pick right most bottom node place at top, heapify by moving it down.
+
+Heaps are usually implemented as arrays:
+- Root of a tree is at index 0.
+- If an element is not root, its parent is at position (index - 1) / 2
+- If an element has a left child the child is at position index * 2 + 1
+- If an element has a right child the child is at position index * 2 + 2

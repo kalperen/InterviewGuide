@@ -1,5 +1,6 @@
 class LinkedList {
   Node<E> head;
+  int size;
 
   public LinkedList(Node<E> head) {
     this.head = head;
