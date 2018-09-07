@@ -125,3 +125,27 @@ The algorithm for merge sort is as follows:
 4. merge two sorted half-arrays into a single sorted array
 
 An implementation can be found [here](Algorithms/MergeSort.java)
+
+### Quick Sort:
+
+The algorithm for quick sort is as follows:
+1. pick a pivot
+2. partition the array into two parts:
+- left - containing all values less than the pivot
+- right - containing all values grater than the pivot
+3. apply quick sort to the left part
+4. apply quick sort to the right part
+
+Selecting a good pivot is necessary for guaranteeing a good performance. Imagine that we always pick the smallest or the largest element to be the pivot. In this scenario we end up with one of the parts containing all but one element from the original array and the other part empty. You may guess that this is not very desirable.
+Picking the pivot also has to be quick.
+
+There are several ways pivots are picked. All of them have their advantages and disadvanteges. Here are just a few ideas of how we can select a pivot:
+1. always pick the first element from the given array (or sub-array)
+2. pick a middle element in the array
+3. pick a random element from the array
+4. select three elements from the array and use their median as the pivot; the three elements could be
+- first three elements in the array
+- first, middle and last elements in the array
+- random three elements in the array
+
+An implementation can be found [here](Algorithms/QuickSort.java)
