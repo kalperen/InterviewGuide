@@ -1,5 +1,7 @@
 # InterviewGuide
 
+## Concepts
+
 This is my review of Algorithms and Data Structures for interview prep.
 Credit to [Kevin](https://github.com/kdn251/interviews) for a lot of the inspiration.
 ### Arrays
@@ -149,3 +151,11 @@ There are several ways pivots are picked. All of them have their advantages and 
 - random three elements in the array
 
 An implementation can be found [here](Algorithms/QuickSort.java)
+
+## Tips and tricks
+
+### Time:
+
+In java given a string representing the time such as "23:11", the natural way ti represent the time is an integer t in the range 0 <= t < 24 * 60. Then the hours are t / 60, the mintues are t % 60, and each digit of the hours and minutes can be found by hours / 10, hours % 10 etc...
+This yields the following format:
+`int[] digits = new int[]{t / 60 / 10, t / 60 % 10, t % 60 / 10, t % 60 % 10}`
