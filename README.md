@@ -120,7 +120,47 @@ Methods:
 
 ### Graphs:
 
+#### Dijkstra's Algorithm
 
+For a given source node in the graph, the algorithm finds the shortest path between that node and every other. It can also be used for finding the shortest paths from a single node to a single destination node by stopping the algorithm once the shortest path to the destination node has been determined
+
+```java
+public int networkDelayTime(int[][] matrix, int N, int S) {
+        // Construct the graph in the form of a hashmap
+        // Matrix's elements are  in the form [source, destination,weight] 
+        Map<Integer, List<int[]>> graph = new HashMap();
+        for (int[] edge: matrix) {
+            if (!graph.containsKey(edge[0]))
+                graph.put(edge[0], new ArrayList<int[]>());
+            graph.get(edge[0]).add(new int[]{edge[1], edge[2]});
+        }
+        PriorityQueue<int[]> heap = new PriorityQueue<int[]>(
+                (info1, info2) -> info1[0] - info2[0]);
+        heap.offer(new int[]{0, S});
+
+        Map<Integer, Integer> dist = new HashMap();
+
+        while (!heap.isEmpty()) {
+            int[] info = heap.poll();
+            int d = info[0], node = info[1];
+            if (dist.containsKey(node)) continue;
+            dist.put(node, d);
+            if (graph.containsKey(node))
+                for (int[] edge: graph.get(node)) {
+                    int nei = edge[0], d2 = edge[1];
+                    if (!dist.containsKey(nei))
+                        heap.offer(new int[]{d+d2, nei});
+                }
+        }
+
+        // Let's return the value of the longest path
+        if (dist.size() != N) return -1;
+        int ans = 0;
+        for (int cand: dist.values())
+            ans = Math.max(ans, cand);
+        return ans;
+    }
+```
 
 ### Merge Sort:
 
