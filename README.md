@@ -87,6 +87,62 @@ Definitions:
 
 Java does not come with a Binary Tree data structure, you must implement your own as can be found [here](DataStructures/BST.java)
 
+#### [Traversals](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/):
+
+**Preorder Traversal:**
+```Java
+void printPreorder(Node node)
+    {
+        if (node == null)
+            return;
+
+        /* first print data of node */
+        System.out.print(node.key + " ");
+
+        /* then recur on left sutree */
+        printPreorder(node.left);
+
+        /* now recur on right subtree */
+        printPreorder(node.right);
+    }
+```
+
+**Postorder Traversal:**
+```Java
+void printPostorder(Node node)
+    {
+        if (node == null)
+            return;
+
+        // first recur on left subtree
+        printPostorder(node.left);
+
+        // then recur on right subtree
+        printPostorder(node.right);
+
+        // now deal with the node
+        System.out.print(node.key + " ");
+    }
+```
+
+**Inorder Traversal:**
+```Java
+void printInorder(Node node)
+    {
+        if (node == null)
+            return;
+
+        /* first recur on left child */
+        printInorder(node.left);
+
+        /* then print the data of node */
+        System.out.print(node.key + " ");
+
+        /* now recur on right child */
+        printInorder(node.right);
+    }
+```
+
 ### Priority Queues and Heaps
 
 A Max/Min heap maintains:
@@ -103,13 +159,19 @@ Heaps are usually implemented as arrays:
 - If an element has a right child the child is at position index * 2 + 2
 
 Declaration:
-- MinHeap: `PriorityQueue<Integer> minHeap = new PriorityQueue<>();`
-- MaxHeap: `PriorityQueue<Integer> maxHeap = new PriorityQueue<>(new Comparator<Integer>() {
+- MinHeap:
+```Java
+PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+```
+- MaxHeap:
+```Java
+PriorityQueue<Integer> maxHeap = new PriorityQueue<>(new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return o2.compareTo(o1);
             }
-        });`
+        });
+```
 
 Methods:
 - `boolean offer(E e)` Inserts the specified element into this priority queue.
@@ -120,6 +182,37 @@ Methods:
 
 ### Graphs:
 
+```Java
+public void dfsORbfs(Node start){
+  //Choose the data structure
+  Stack<Node> stack = new Stack(); //For DFS
+  Queue<Node> queue = new LinkedList(); For BFS
+  Set<Node> seen = new HashSet();
+
+  stack.push(start);
+  queue.add(start);
+
+  //change stack to queue for bfs
+  while(!stack.isEmpty()) {
+    // Pull a node to process
+    Node curr = stack.pop();
+    //Node curr = queu.poll();
+    // Process if not seen
+    if (!seen.contains(cur)) {
+      seen.add(curr);
+      System.out.println(curr);
+    }
+    // Add unseen children
+    for (Node adjacent: curr.adjacents){
+      if (!seen.contains(adjacent)) {
+        stack.push(adjacent);
+        //queue.add(adjacent);
+      }
+    }
+  }
+}
+```
+
 #### Dijkstra's Algorithm
 
 For a given source node in the graph, the algorithm finds the shortest path between that node and every other. It can also be used for finding the shortest paths from a single node to a single destination node by stopping the algorithm once the shortest path to the destination node has been determined
@@ -127,7 +220,7 @@ For a given source node in the graph, the algorithm finds the shortest path betw
 ```java
 public int networkDelayTime(int[][] matrix, int N, int S) {
         // Construct the graph in the form of a hashmap
-        // Matrix's elements are  in the form [source, destination,weight] 
+        // Matrix's elements are  in the form [source, destination,weight]
         Map<Integer, List<int[]>> graph = new HashMap();
         for (int[] edge: matrix) {
             if (!graph.containsKey(edge[0]))
