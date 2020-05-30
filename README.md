@@ -30,6 +30,20 @@ Methods:
 - `V remove(Object key)` removes mapping of key and returns the value of that key or null.
 - `Set<K> keySet()` returns the set view of keys contained in the map.
 
+You can easily implement a Counter in java with the following:
+
+```java
+class Counter extends HashMap<Integer, Integer> {
+    public int get(int k) {
+        return containsKey(k) ? super.get(k) : 0;
+    }
+
+    public void add(int k, int v) {
+        put(k, get(k) + v);
+    }
+}
+```
+
 ### Stacks
 Stacks are structures in which elements are always added and removed from the same end. Stacks are last in first out (LIFO) structures.
 
