@@ -227,6 +227,53 @@ public void dfsORbfs(Node start){
 }
 ```
 
+#### Topological Sort:
+
+```Java
+public int[] findOrder(int numNodes, int[][] edges) {
+    int[][] matrix = new int[numNodes][numNodes]; // i -> j
+    int[] indegree = new int[numNodes];
+
+    for (int i = 0; i < edges.length; i++) {
+        int cur = edges[i][0];
+        int pre = edges[i][1];
+        if (matrix[pre][cur] == 0){
+            indegree[cur]++;
+        }
+        matrix[pre][cur] = 1;
+    }
+
+    Queue<Integer> order = new LinkedList();
+    Queue<Integer> processNext = new LinkedList();
+    for (int i=0; i<indegree.length; i++) {
+        if (indegree[i] == 0){
+            processNext.offer(i);
+        }
+    }
+    while (!processNext.isEmpty()) {
+        int node = processNext.poll();
+        for (int i=0; i < numNodes; i++) {
+            if (matrix[node][i] != 0) {
+                indegree[i]--;
+                if(indegree[i] == 0) {
+                    processNext.offer(i);
+                }
+            }
+        }
+        order.offer(node);
+    }
+
+    int[] output = new int[order.size()];
+    int index = 0;
+    while (!order.isEmpty()){
+        output[index] = order.poll();
+        index++;
+    }
+    return output.length == numNodes ? output: new int[0];
+}
+```
+
+
 #### Dijkstra's Algorithm
 
 For a given source node in the graph, the algorithm finds the shortest path between that node and every other. It can also be used for finding the shortest paths from a single node to a single destination node by stopping the algorithm once the shortest path to the destination node has been determined
