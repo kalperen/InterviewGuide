@@ -4,6 +4,7 @@
 
 This is my review of Algorithms and Data Structures for interview prep.
 Credit to [Kevin](https://github.com/kdn251/interviews) for a lot of the inspiration.
+
 ### Arrays
 
 An array is a data structure that holds a fixed number of values (data points) of the same type. Each item, or value, in an array is called an element, and each element is accessed by its integer index. When we initialize an array, we get to choose what type of data it can hold and how many elements it can hold.
@@ -315,6 +316,33 @@ public int networkDelayTime(int[][] matrix, int N, int S) {
         return ans;
     }
 ```
+
+### Binary Search:
+
+If you need to return index during search:
+```java
+while lo <= hi:
+  mid = (lo+hi)/2
+  if nums[mid] == target:
+    return mid
+  if nums[mid] > target:
+    hi = mid-1
+  else:
+    lo = mid+1
+return -1
+```
+
+Searching lowest element satisfy function(i) == True (the array should satisfy function(x) == False for 0 to i-1, and function(x) == True for i to n-1, and it is up to the question to define the function, like in the find peak element problem, function(x) can be nums[x] < nums[x+1])
+```java
+while lo <= hi:
+  mid = (lo+hi)/2
+  if function(mid):
+    hi = mid-1
+  else:
+    lo = mid+1
+return lo
+```
+
 
 ### Merge Sort:
 
